@@ -4,7 +4,7 @@ a tiny koreader sync server rewritten by golang according to
 it uses sqlite3 file as the database by default, tables will be auto created while the programm runs
 
 ## build and run
-if you are using the newer go version wiht modle
+if you are using the newer go version with modle
 ```
 CGO_ENABLED=0   //sqlite3 needs it
 go mod init kosyncsrv
