@@ -6,7 +6,7 @@ it uses sqlite3 file as the database by default, tables will be auto created whi
 ## build and run
 if you are using the newer go version with modle
 ```
-CGO_ENABLED=0   //sqlite3 needs it
+CGO_ENABLED=1   //sqlite3 needs it
 go mod init kosyncsrv
 go build
 ```
