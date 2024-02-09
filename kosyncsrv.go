@@ -119,12 +119,13 @@ func main() {
 	sslswitch := flag.Bool("ssl", false, "Start with https")
 	sslc := flag.String("c", "", "SSL Certificate file")
 	sslk := flag.String("k", "", "SSL Private key file")
-	bindsrv := *srvhost + ":" + fmt.Sprint(*srvport)
+	
 	flag.Usage = func() {
 		fmt.Println(`Usage: kosyncsrv [-h] [-t 127.0.0.1] [-p 8080] [-ssl -c "./cert.pem" -k "./cert.key"]`)
 		flag.PrintDefaults()
 	}
 	flag.Parse()
+	bindsrv := *srvhost + ":" + fmt.Sprint(*srvport)
 	initDB()
 
 	router := gin.Default()
