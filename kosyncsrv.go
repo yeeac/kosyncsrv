@@ -113,18 +113,21 @@ func updateProgress(c *gin.Context) {
 
 func main() {
 	dbfile := flag.String("d", "syncdata.db", "Sqlite3 DB file name")
-	dbname = *dbfile
 	srvhost := flag.String("t", "127.0.0.1", "Server host")
 	srvport := flag.Int("p", 8080, "Server port")
 	sslswitch := flag.Bool("ssl", false, "Start with https")
 	sslc := flag.String("c", "", "SSL Certificate file")
 	sslk := flag.String("k", "", "SSL Private key file")
-	bindsrv := *srvhost + ":" + fmt.Sprint(*srvport)
+	
 	flag.Usage = func() {
 		fmt.Println(`Usage: kosyncsrv [-h] [-t 127.0.0.1] [-p 8080] [-ssl -c "./cert.pem" -k "./cert.key"]`)
 		flag.PrintDefaults()
 	}
 	flag.Parse()
+	
+	bindsrv := *srvhost + ":" + fmt.Sprint(*srvport)
+	
+	dbname = *dbfile
 	initDB()
 
 	router := gin.Default()
